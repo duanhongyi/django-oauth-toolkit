@@ -191,7 +191,7 @@ class OAuth2Validator(RequestValidator):
             log.debug("Failed body auth: Application %s does not exists" % client_id)
             return False
         elif not self._check_secret(client_secret, request.client.client_secret):
-            log.debug("Failed body auth: wrong client secret %s" % client_secret)
+            log.debug("Failed body auth: wrong client secret %s,%s" % (client_secret, request.client.client_secret))
             return False
         else:
             return True
